@@ -1,0 +1,81 @@
+﻿:root {
+    --secao-bg-color: rgba(29, 29, 29, .22);
+    --secao-box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, .15);
+}
+
+body {
+    background-color: #414141;
+}
+
+#app {
+    margin: auto;
+    max-width: 1000px;
+    padding: 12px;
+}
+
+#header {
+    background: var(--secao-bg-color);
+    box-shadow: var(--secao-box-shadow);
+    padding: 5px;
+}
+
+#banner {
+    background-color: var(--secao-bg-color);
+    box-shadow: var(--secao-box-shadow);
+}
+
+    #banner .banner-text {
+        background: linear-gradient(90deg, rgba(229, 62, 168, .906), rgba(172, 47, 189, .925) 60%);
+        background-clip: text;
+        color: transparent;
+    }
+
+    #banner .bg-foto {
+        background: linear-gradient(90deg, rgba(229, 62, 168, .906), rgba(172, 47, 189, .925) 60%);
+        border-radius: 33% 67% 53% 47% / 66% 41% 59% 34%;
+        height: 15rem;
+        margin-right: 3rem;
+        overflow: hidden;
+        width: 15rem;
+        
+    }
+
+#sobre {
+    background: var(--secao-bg-color);
+    box-shadow: var(--secao-box-shadow);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+    #sobre .quote {
+        position: absolute;
+        right: 30px;
+        top: 40px;
+        width: 50px;
+    }
+
+#habilidades {
+    background: var(--secao-bg-color);
+    box-shadow: var(--secao-box-shadow);
+}
+
+#portfolio {
+    background: var(--secao-bg-color);
+    box-shadow: var(--secao-box-shadow);
+}
+
+#contato {
+    background: var(--secao-bg-color);
+    box-shadow: var(--secao-box-shadow);
+}
+
+    #contato .icone {
+        background: linear-gradient(90deg, rgba(229, 62, 168, .906), rgba(172, 47, 189, .925) 60%);
+        border-radius: 50%;
+        height: 3.2rem;
+        width: 3.2rem;
+    }
+
+.modal-body-customizado {
+    background-color: #3d3d3d;
+}
