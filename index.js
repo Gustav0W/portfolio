@@ -15,7 +15,7 @@ const dadosCardControleMedicamento = {
 const dadosCardGerenciadorPersonagem = {
     titulo: 'Gerenciador de Personagem',
     imagem: './assets/GerenciadorPersonagens.png',
-    gif: 'https://i.imgur.com/Kkei5Br.gif',
+    gif: 'https://i.imgur.com/pxqDp2r.gif',
     urlRepositorio: 'https://github.com/Gustav0W/Gerenciador-De-Personagens-2025',
     stack: [
         'https://skillicons.dev/icons?i=html&theme=light',
