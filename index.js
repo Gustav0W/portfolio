@@ -1,92 +1,547 @@
-const dadosCardControleMedicamento = {
-  titulo: 'Controle de Medicamentos',
-  imagem: './assets/ControleMedicamentos.png',
-  gif: 'https://i.imgur.com/pKHsY4i.gif',
-  urlRepositorio: 'https://github.com/Gustav0W/Controle-de-Medicamentos2.ConsoleApp',
-  stack: [
-    'https://skillicons.dev/icons?i=html&theme=light',
-    'https://skillicons.dev/icons?i=css&theme=light',
-    'https://skillicons.dev/icons?i=cs&theme=light',
-    'https://skillicons.dev/icons?i=net&theme=light',
-  ],
-  descricao: 'O sistema de Controle de Medicamentos apresenta o conceito de gerenciamento de um posto de saúde, com o controle de fornecimento, estoque, funcionários, pacientes e retirada de prescrições - com foco na rastreabilidade das movimentações de estoque.'
-};
+const projetos = [
+  {
+    titulo: 'Neurocor',
+    categoria: 'site',
+    tipo: 'Clínica médica',
+    dominio: 'neurocor',
+    video: './assets/videos/neurocor-1.mp4',
+    poster: './assets/videos/posters/neurocor-1.jpg',
+    descricao: 'Site institucional para uma clínica especializada em Lages, apresentando a equipe médica, as especialidades atendidas e a história da clínica, com foco em transmitir confiança e acolhimento.',
+    tags: ['WordPress', 'Institucional', 'Saúde'],
+    url: null
+  },
+  {
+    titulo: 'Recicla Lages',
+    categoria: 'site',
+    tipo: 'Setor público',
+    dominio: 'reciclalages',
+    video: './assets/videos/recicla-lages.mp4',
+    poster: './assets/videos/posters/recicla-lages.jpg',
+    descricao: 'Site da iniciativa da Semasa para modernizar a coleta seletiva em Lages, valorizando os recicladores e informando a população sobre rotas de coleta e notícias do programa.',
+    tags: ['WordPress', 'Governo', 'Sustentabilidade'],
+    url: null
+  },
+  {
+    titulo: 'Espaço Opção',
+    categoria: 'site',
+    tipo: 'Loja de moda',
+    dominio: 'espacoopcao',
+    video: './assets/videos/loja-opcao.mp4',
+    poster: './assets/videos/posters/loja-opcao.jpg',
+    descricao: 'Loja virtual de moda com catálogo de roupas, calçados e artigos em couro, carrinho de compras, busca de produtos e banners de coleção em destaque.',
+    tags: ['WordPress', 'E-commerce', 'Varejo'],
+    url: null
+  },
+  {
+    titulo: 'Expedições',
+    categoria: 'site',
+    tipo: 'Turismo de aventura',
+    dominio: 'expedicoes',
+    video: './assets/videos/expedicoes.mp4',
+    poster: './assets/videos/posters/expedicoes.jpg',
+    descricao: 'Site para uma empresa de expedições nacionais e internacionais, com vitrine de roteiros, agenda de saídas, galeria, depoimentos e perguntas frequentes.',
+    tags: ['WordPress', 'Turismo', 'Institucional'],
+    url: null
+  },
+  {
+    titulo: 'Orquestra',
+    categoria: 'site',
+    tipo: 'Projeto cultural',
+    dominio: 'orquestra',
+    video: './assets/videos/orquestra.mp4',
+    poster: './assets/videos/posters/orquestra.jpg',
+    descricao: 'Site de um projeto de orquestra com páginas para a instituição, programação pedagógica e artística, impacto social, patrocinadores e mídia.',
+    tags: ['WordPress', 'Cultura', 'Institucional'],
+    url: null
+  },
+  {
+    titulo: 'ASFAG Controle de Pragas',
+    categoria: 'site',
+    tipo: 'Prestação de serviços',
+    dominio: 'asfag',
+    video: './assets/videos/asfag-controle-pragas.mp4',
+    poster: './assets/videos/posters/asfag-controle-pragas.jpg',
+    descricao: 'Site para uma empresa de controle de pragas, com apresentação dos serviços, produtos, parceiros, um guia de insetos e dicas de prevenção.',
+    tags: ['WordPress', 'Serviços', 'Institucional'],
+    url: null
+  },
+  {
+    titulo: 'Plano Funeral',
+    categoria: 'site',
+    tipo: 'Planos funerários',
+    dominio: 'planofuneral',
+    video: './assets/videos/plano-funeral.mp4',
+    poster: './assets/videos/posters/plano-funeral.jpg',
+    descricao: 'Site para uma empresa de planos funerários, com comunicação acolhedora, apresentação dos serviços e contato rápido via WhatsApp.',
+    tags: ['WordPress', 'Serviços', 'Institucional'],
+    url: null
+  },
+  {
+    titulo: 'Gerenciador de Personagens',
+    categoria: 'sistema',
+    tipo: 'Ferramenta para RPG',
+    dominio: 'localhost',
+    imagem: './assets/GerenciadorDePersonagens.png',
+    gif: 'https://i.imgur.com/pxqDp2r.gif',
+    descricao: 'Sistema para auxiliar na criação de personagens para RPG de mesa. É o projeto pessoal que mais tenho vontade de evoluir — a ideia é deixá-lo cada vez mais completo e um dia publicá-lo para qualquer pessoa usar.',
+    tags: ['C#', '.NET', 'HTML', 'CSS'],
+    repositorio: 'https://github.com/Gustav0W/Gerenciador-De-Personagens-2025'
+  },
+  {
+    titulo: 'Controle de Medicamentos',
+    categoria: 'sistema',
+    tipo: 'Gestão de posto de saúde',
+    dominio: 'localhost',
+    imagem: './assets/ControleMedicamentos.png',
+    gif: 'https://i.imgur.com/pKHsY4i.gif',
+    descricao: 'Sistema de gerenciamento de um posto de saúde, com controle de fornecimento, estoque, funcionários, pacientes e retirada de prescrições — com foco na rastreabilidade das movimentações de estoque.',
+    tags: ['C#', '.NET', 'HTML', 'CSS'],
+    repositorio: 'https://github.com/Gustav0W/Controle-de-Medicamentos2.ConsoleApp'
+  }
+];
 
-const dadosCardGerenciadorPersonagem = {
-  titulo: 'Gerenciador de Personagem',
-  imagem: './assets/GerenciadorDePersonagens.png',
-  gif: 'https://i.imgur.com/pxqDp2r.gif',
-  urlRepositorio: 'https://github.com/Gustav0W/Gerenciador-De-Personagens-2025',
-  stack: [
-    'https://skillicons.dev/icons?i=html&theme=light',
-    'https://skillicons.dev/icons?i=css&theme=light',
-    'https://skillicons.dev/icons?i=cs&theme=light',
-    'https://skillicons.dev/icons?i=net&theme=light',
-  ],
-  descricao: 'O sistema de Gerenciador de Personagens está sendo feito com o intuito de auxiliar na criação de personagens para RPG de mesa. Ele ainda está simples e em desenvolvimento, porém os planos são deixá-lo cada vez melhor, e em algum momento liberá-lo na internet para auxiliar qualquer um. Creio que seja meu projeto principal e o que mais tenho vontade de desenvolver cada vez mais, no resto do curso, e nos meses seguintes.'
+const papeis = [
+  'Desenvolvedor de Jogos · Lua',
+  'Desenvolvedor Web · WordPress',
+  'Estudante Full-stack · C# e .NET'
+];
+
+const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const semHover = window.matchMedia('(hover: none)').matches;
+
+function mostrarToast(mensagem) {
+  const toast = document.getElementById('toast');
+
+  toast.textContent = mensagem;
+  toast.classList.add('visivel');
+
+  clearTimeout(mostrarToast.timer);
+  mostrarToast.timer = setTimeout(() => toast.classList.remove('visivel'), 2600);
 }
 
-let cardSelecionado;
+/* ---------- Navegação ---------- */
+function iniciarMenu() {
+  const btnMenu = document.getElementById('btnMenu');
+  const menu = document.getElementById('menu');
 
-function carregarDadosCardAtual() {
-  if (!cardSelecionado)
-    throw new Error('Card não selecionado.');
+  function alternarMenu(abrir) {
+    menu.classList.toggle('aberto', abrir);
+    btnMenu.setAttribute('aria-expanded', abrir);
+  }
 
-  const imgCard = document.getElementById('imgCard');
-  const stackCard = document.getElementById('stackCard');
-  const tituloCard = document.getElementById('tituloCard');
-  const descricaoCard = document.getElementById('descricaoCard');
-  const urlRepositorio = document.getElementById('urlRepositorio')
+  btnMenu.addEventListener('click', () => alternarMenu(!menu.classList.contains('aberto')));
 
-  imgCard.src = cardSelecionado.imagem;
-  tituloCard.textContent = cardSelecionado.titulo;
-  descricaoCard.textContent = cardSelecionado.descricao;
-  urlRepositorio.href = cardSelecionado.urlRepositorio;
+  for (let link of menu.querySelectorAll('a'))
+    link.addEventListener('click', () => alternarMenu(false));
+}
 
-  stackCard.innerHTML = '';
+function iniciarScroll() {
+  const topo = document.getElementById('topo');
+  const progresso = document.getElementById('progressoScroll');
 
-  for (let item of cardSelecionado.stack) {
-    const iconeStack = document.createElement('img');
-    iconeStack.width = 35;
-    iconeStack.src = item;
+  function atualizar() {
+    const alturaRolavel = document.documentElement.scrollHeight - window.innerHeight;
 
-    stackCard.appendChild(iconeStack);
+    topo.classList.toggle('rolado', window.scrollY > 20);
+    progresso.style.transform = `scaleX(${alturaRolavel > 0 ? window.scrollY / alturaRolavel : 0})`;
+  }
+
+  window.addEventListener('scroll', atualizar, { passive: true });
+  atualizar();
+
+  const linksMenu = document.querySelectorAll('.nav-links a');
+
+  const observador = new IntersectionObserver((entradas) => {
+    for (let entrada of entradas) {
+      if (!entrada.isIntersecting)
+        continue;
+
+      for (let link of linksMenu)
+        link.classList.toggle('ativo', link.getAttribute('href') === `#${entrada.target.id}`);
+    }
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  for (let secao of document.querySelectorAll('main section[id]'))
+    observador.observe(secao);
+}
+
+/* ---------- Hero ---------- */
+function iniciarDigitacao() {
+  const alvo = document.getElementById('textoDigitado');
+
+  if (semMovimento) {
+    alvo.textContent = papeis[0];
+    return;
+  }
+
+  let indicePapel = 0;
+  let indiceLetra = 0;
+  let apagando = false;
+
+  function passo() {
+    const papel = papeis[indicePapel];
+
+    indiceLetra += apagando ? -1 : 1;
+    alvo.textContent = papel.slice(0, indiceLetra);
+
+    let espera = apagando ? 35 : 70;
+
+    if (!apagando && indiceLetra === papel.length) {
+      apagando = true;
+      espera = 1800;
+    } else if (apagando && indiceLetra === 0) {
+      apagando = false;
+      indicePapel = (indicePapel + 1) % papeis.length;
+      espera = 400;
+    }
+
+    setTimeout(passo, espera);
+  }
+
+  passo();
+}
+
+function iniciarCanvasPixels() {
+  const canvas = document.getElementById('canvasPixels');
+  const contexto = canvas.getContext('2d');
+  const cores = ['#ff3ea5', '#a855f7', '#22d3ee', '#a3e635'];
+  const mouse = { x: 0, y: 0 };
+
+  let pixels = [];
+  let largura = 0;
+  let altura = 0;
+  let visivel = true;
+
+  function redimensionar() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    largura = canvas.offsetWidth;
+    altura = canvas.offsetHeight;
+    canvas.width = largura * dpr;
+    canvas.height = altura * dpr;
+    contexto.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const quantidade = Math.round((largura * altura) / 16000);
+
+    pixels = Array.from({ length: quantidade }, () => ({
+      x: Math.random() * largura,
+      y: Math.random() * altura,
+      tamanho: 2 + Math.floor(Math.random() * 4),
+      velocidade: .15 + Math.random() * .45,
+      profundidade: .2 + Math.random() * .8,
+      fase: Math.random() * Math.PI * 2,
+      cor: cores[Math.floor(Math.random() * cores.length)]
+    }));
+  }
+
+  function desenhar(tempo) {
+    contexto.clearRect(0, 0, largura, altura);
+
+    for (let pixel of pixels) {
+      if (!semMovimento) {
+        pixel.y -= pixel.velocidade;
+
+        if (pixel.y < -10) {
+          pixel.y = altura + 10;
+          pixel.x = Math.random() * largura;
+        }
+      }
+
+      const deslocX = mouse.x * 18 * pixel.profundidade;
+      const deslocY = mouse.y * 18 * pixel.profundidade;
+
+      contexto.globalAlpha = .25 + Math.abs(Math.sin(tempo / 1200 + pixel.fase)) * .6;
+      contexto.fillStyle = pixel.cor;
+      contexto.fillRect(Math.round(pixel.x + deslocX), Math.round(pixel.y + deslocY), pixel.tamanho, pixel.tamanho);
+    }
+
+    if (visivel && !semMovimento)
+      requestAnimationFrame(desenhar);
+  }
+
+  window.addEventListener('resize', redimensionar);
+  window.addEventListener('mousemove', (evento) => {
+    mouse.x = evento.clientX / window.innerWidth - .5;
+    mouse.y = evento.clientY / window.innerHeight - .5;
+  }, { passive: true });
+
+  new IntersectionObserver(([entrada]) => {
+    const estavaVisivel = visivel;
+    visivel = entrada.isIntersecting;
+
+    if (visivel && !estavaVisivel && !semMovimento)
+      requestAnimationFrame(desenhar);
+  }).observe(canvas);
+
+  redimensionar();
+  requestAnimationFrame(desenhar);
+}
+
+/* ---------- Animações de entrada ---------- */
+function iniciarReveal() {
+  const observador = new IntersectionObserver((entradas) => {
+    for (let entrada of entradas) {
+      if (!entrada.isIntersecting)
+        continue;
+
+      entrada.target.classList.add('visivel');
+      observador.unobserve(entrada.target);
+    }
+  }, { threshold: .15 });
+
+  for (let elemento of document.querySelectorAll('.reveal'))
+    observador.observe(elemento);
+}
+
+function iniciarSpotlightSkills() {
+  for (let card of document.querySelectorAll('.skill-card')) {
+    card.addEventListener('pointermove', (evento) => {
+      const area = card.getBoundingClientRect();
+
+      card.style.setProperty('--mx', `${evento.clientX - area.left}px`);
+      card.style.setProperty('--my', `${evento.clientY - area.top}px`);
+    });
   }
 }
 
-function selecionarPrimeiroCard() {
-  if (cardSelecionado == dadosCardControleMedicamento)
-    return;
+/* ---------- Projetos ---------- */
+function criarCardProjeto(projeto) {
+  const card = document.createElement('article');
 
-  cardSelecionado = dadosCardControleMedicamento;
-  carregarDadosCardAtual();
+  card.className = 'projeto-card';
+  card.dataset.categoria = projeto.categoria;
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `Abrir projeto ${projeto.titulo}`);
+
+  const midia = projeto.video
+    ? `<video muted loop playsinline preload="none" poster="${projeto.poster}" src="${projeto.video}"></video>`
+    : `<img src="${projeto.imagem}" alt="" loading="lazy" />`;
+
+  card.innerHTML = `
+    <div class="browser-barra">
+      <span class="ponto vermelho"></span><span class="ponto amarelo"></span><span class="ponto verde"></span>
+      <span class="browser-url">${projeto.dominio}</span>
+    </div>
+    <div class="projeto-midia">
+      ${midia}
+      <span class="projeto-play">▶ ${semHover ? 'Toque para ver' : 'Passe o mouse'}</span>
+    </div>
+    <div class="projeto-info">
+      <span class="projeto-tipo">${projeto.tipo}</span>
+      <h3>${projeto.titulo}</h3>
+      <p>${projeto.descricao}</p>
+      <ul class="tags">${projeto.tags.map((tag) => `<li>${tag}</li>`).join('')}</ul>
+    </div>
+  `;
+
+  const video = card.querySelector('video');
+  const imagem = card.querySelector('.projeto-midia img');
+
+  function iniciarPreview() {
+    card.classList.add('tocando');
+
+    if (video)
+      video.play().catch(() => {});
+    else
+      imagem.src = projeto.gif;
+  }
+
+  function pararPreview() {
+    card.classList.remove('tocando');
+
+    if (video)
+      video.pause();
+    else
+      imagem.src = projeto.imagem;
+  }
+
+  card.iniciarPreview = iniciarPreview;
+  card.pararPreview = pararPreview;
+
+  if (!semHover) {
+    card.addEventListener('mouseenter', iniciarPreview);
+    card.addEventListener('mouseleave', pararPreview);
+  }
+
+  card.addEventListener('click', () => abrirModalProjeto(projeto));
+  card.addEventListener('keydown', (evento) => {
+    if (evento.key !== 'Enter' && evento.key !== ' ')
+      return;
+
+    evento.preventDefault();
+    abrirModalProjeto(projeto);
+  });
+
+  return card;
 }
 
-function selecionarSegundoCard() {
-  if (cardSelecionado == dadosCardGerenciadorPersonagem)
-    return;
+function criarCardJogoBloqueado() {
+  const card = document.createElement('article');
 
-  cardSelecionado = dadosCardGerenciadorPersonagem;
-  carregarDadosCardAtual();
+  card.className = 'projeto-card projeto-bloqueado';
+  card.dataset.categoria = 'jogo';
+  card.innerHTML = `
+    <div class="cadeado" aria-hidden="true">🔒</div>
+    <span class="pixel">Fase bloqueada</span>
+    <h3>Projetos de jogos em Lua</h3>
+    <p>Em breve, gameplay dos jogos em que estou trabalhando. Volte para desbloquear!</p>
+  `;
+
+  return card;
 }
 
-function abrirModalProjeto() {
-  document.getElementById('portfolioModalLabel').textContent = cardSelecionado.titulo;
-  document.getElementById('portfolioModalImage').src = cardSelecionado.gif;
+function renderizarProjetos() {
+  const grade = document.getElementById('gradeProjetos');
+
+  for (let projeto of projetos)
+    grade.appendChild(criarCardProjeto(projeto));
+
+  grade.appendChild(criarCardJogoBloqueado());
+
+  // Em telas de toque não existe hover: o preview toca quando o card está visível
+  if (semHover && !semMovimento) {
+    const observador = new IntersectionObserver((entradas) => {
+      for (let entrada of entradas) {
+        if (!entrada.target.iniciarPreview)
+          continue;
+
+        if (entrada.isIntersecting)
+          entrada.target.iniciarPreview();
+        else
+          entrada.target.pararPreview();
+      }
+    }, { threshold: .7 });
+
+    for (let card of grade.children)
+      observador.observe(card);
+  }
+}
+
+function iniciarFiltros() {
+  const botoes = document.querySelectorAll('.filtro');
+  const cards = document.querySelectorAll('.projeto-card');
+
+  for (let botao of botoes) {
+    const filtro = botao.dataset.filtro;
+    const total = filtro === 'todos'
+      ? projetos.length
+      : projetos.filter((projeto) => projeto.categoria === filtro).length;
+
+    botao.insertAdjacentHTML('beforeend', `<span class="contador">${total}</span>`);
+
+    botao.addEventListener('click', () => {
+      for (let outro of botoes) {
+        outro.classList.toggle('ativo', outro === botao);
+        outro.setAttribute('aria-pressed', outro === botao);
+      }
+
+      for (let card of cards) {
+        const mostrar = filtro === 'todos' || card.dataset.categoria === filtro;
+
+        card.classList.toggle('escondido', !mostrar);
+        card.classList.remove('entrando');
+
+        if (mostrar) {
+          void card.offsetWidth;
+          card.classList.add('entrando');
+        }
+      }
+    });
+  }
+}
+
+function abrirModalProjeto(projeto) {
+  const modal = document.getElementById('modalProjeto');
+  const modalMidia = document.getElementById('modalMidia');
+  const modalLinks = document.getElementById('modalLinks');
+
+  modalMidia.innerHTML = projeto.video
+    ? `<video src="${projeto.video}" poster="${projeto.poster}" autoplay muted loop playsinline controls></video>`
+    : `<img src="${projeto.gif}" alt="Demonstração do projeto ${projeto.titulo}" />`;
+
+  document.getElementById('modalTipo').textContent = projeto.tipo;
+  document.getElementById('modalTitulo').textContent = projeto.titulo;
+  document.getElementById('modalDescricao').textContent = projeto.descricao;
+  document.getElementById('modalTags').innerHTML = projeto.tags.map((tag) => `<li>${tag}</li>`).join('');
+
+  modalLinks.innerHTML = '';
+
+  if (projeto.url)
+    modalLinks.insertAdjacentHTML('beforeend', `<a class="btn btn-primario" href="${projeto.url}" target="_blank" rel="noopener">Visitar site</a>`);
+
+  if (projeto.repositorio)
+    modalLinks.insertAdjacentHTML('beforeend', `<a class="btn btn-secundario" href="${projeto.repositorio}" target="_blank" rel="noopener">Repositório</a>`);
+
+  modal.showModal();
+}
+
+function iniciarModal() {
+  const modal = document.getElementById('modalProjeto');
+
+  document.getElementById('btnFecharModal').addEventListener('click', () => modal.close());
+
+  // Clique fora do conteúdo (no backdrop) fecha o modal
+  modal.addEventListener('click', (evento) => {
+    if (evento.target === modal)
+      modal.close();
+  });
+
+  modal.addEventListener('close', () => {
+    document.getElementById('modalMidia').innerHTML = '';
+  });
+}
+
+/* ---------- Contato ---------- */
+function iniciarCopiarEmail() {
+  const botao = document.getElementById('btnCopiarEmail');
+
+  botao.addEventListener('click', async () => {
+    const email = botao.dataset.email;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      mostrarToast('✔ E-mail copiado!');
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  });
+}
+
+/* ---------- Easter egg ---------- */
+function iniciarKonami() {
+  const sequencia = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+  let posicao = 0;
+
+  document.addEventListener('keydown', (evento) => {
+    const tecla = evento.key.toLowerCase();
+
+    posicao = tecla === sequencia[posicao] ? posicao + 1 : (tecla === sequencia[0] ? 1 : 0);
+
+    if (posicao < sequencia.length)
+      return;
+
+    posicao = 0;
+
+    const ativo = document.body.classList.toggle('modo-retro');
+    mostrarToast(ativo ? '🕹️ Modo retrô ativado! +30 vidas' : 'Modo retrô desativado');
+  });
 }
 
 function main() {
-  const btnSelecionarPrimeiroCard = document.getElementById("selecionarPrimeiroCard");
-  const btnSelecionarSegundoCard = document.getElementById("selecionarSegundoCard");
-  const btnVerProjeto = document.getElementById("btnVerProjeto");
+  document.getElementById('anoAtual').textContent = new Date().getFullYear();
 
-  btnSelecionarPrimeiroCard.addEventListener('click', selecionarPrimeiroCard);
-  btnSelecionarSegundoCard.addEventListener('click', selecionarSegundoCard);
-  btnVerProjeto.addEventListener('click', abrirModalProjeto);
-
-  selecionarPrimeiroCard();
-
-
-};
+  iniciarMenu();
+  iniciarScroll();
+  iniciarDigitacao();
+  iniciarCanvasPixels();
+  renderizarProjetos();
+  iniciarFiltros();
+  iniciarModal();
+  iniciarReveal();
+  iniciarSpotlightSkills();
+  iniciarCopiarEmail();
+  iniciarKonami();
+}
 
 document.addEventListener('DOMContentLoaded', main);

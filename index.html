@@ -1,253 +1,377 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gustavo Vieira Walter — desenvolvedor de jogos com Lua e desenvolvedor web com experiência em WordPress. Lages - SC." />
+  <meta name="theme-color" content="#0b0a14" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <meta property="og:title" content="Gustavo Vieira Walter — Portfólio" />
+  <meta property="og:description" content="Dev de jogos com Lua e dev web com WordPress. Veja meus projetos." />
+  <meta property="og:image" content="assets/Gustavo.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link href="./index.css" rel="stylesheet" />
 
-  <title>Portfólio - Gustavo Vieira Walter</title>
+  <title>Gustavo Walter — Portfólio</title>
 </head>
 <body>
-  <main id="app">
-    <section id="header" class="rounded-4">
-      <nav class="navbar navbar-expand-md navbar-expand-lg" data-bs-theme="dark">
-        <div class="container-fluid">
+  <div id="progressoScroll" class="progresso-scroll" aria-hidden="true"></div>
 
-          <a class="navbar-brand fw-semibold" href="#">
-            Portfólio
-          </a>
+  <header id="topo" class="topo">
+    <nav class="nav container">
+      <a class="logo" href="#inicio" aria-label="Início">
+        <span class="logo-chave">&lt;</span>gw<span class="logo-chave">/&gt;</span>
+      </a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <button id="btnMenu" class="btn-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
 
-          <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#banner">Início</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#sobre">Sobre</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#habilidades">Habilidades</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contato">Contato</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </section>
+      <ul id="menu" class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a class="nav-cta" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="banner" class="rounded-4 mt-3 p-3">
-      <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <canvas id="canvasPixels" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
 
-        <div class="col order-1 order-lg-0">
-          <div class="textContent">
-            <p class="text-white fs-3 mb-1">Olá eu sou <strong>Gustavo Vieira Walter</strong>!</p>
-            <span class="fs-1 fw-bold banner-text">Aluno de Desenvolvimento</span>
-          </div>
+      <div class="container hero-grid">
+        <div class="hero-texto">
+          <span class="badge-status">
+            <span class="ponto-pulso"></span>
+            Atualmente desenvolvendo jogos com Lua
+          </span>
 
-          <div class="d-flex align-items-center gap-3 mt-3">
-            <a class="btn btn-primary" href="#contato">Contate-me!</a>
+          <h1>
+            Olá, eu sou<br />
+            <span class="texto-gradiente">Gustavo Walter</span>
+          </h1>
 
-            <div class="d-flex">
-              <a target="_blank" href="https://github.com/Gustav0W">
-                <img alt="Github logo" src="assets/github.png" />
+          <p class="hero-papel">
+            <span class="pixel">&gt;</span>
+            <span id="textoDigitado"></span><span class="cursor">_</span>
+          </p>
+
+          <p class="hero-descricao">
+            Transformo ideias em experiências interativas — de sites que colocam negócios
+            no ar a jogos que colocam pessoas para jogar.
+          </p>
+
+          <div class="hero-acoes">
+            <a class="btn btn-primario" href="#projetos">
+              Ver projetos
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a class="btn btn-secundario" href="#contato">Fale comigo</a>
+
+            <div class="redes">
+              <a href="https://github.com/Gustav0W" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z" /></svg>
               </a>
-
-              <a target="_blank" href="https://www.linkedin.com/in/gustavo-walter-418a742bb/">
-                <img alt="Linkedin logo" src="assets/linkedin.png" />
+              <a href="https://www.linkedin.com/in/gustavo-walter-418a742bb/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z" /></svg>
               </a>
             </div>
           </div>
+
+          <ul class="hero-stats">
+            <li><strong>1 ano</strong><span>criando sites<br />com WordPress</span></li>
+            <li><strong>7</strong><span>sites em<br />destaque aqui</span></li>
+            <li><strong>Lua</strong><span>no dia a dia<br />com jogos</span></li>
+          </ul>
         </div>
 
-        <div class="col-3 mx-auto order-0 order-lg-1 bg-foto">
-          <img class="img-fluid" src="assets/Gustavo.jpg" alt="Foto Gustavo Vieira Walter">
+        <div class="hero-foto">
+          <div class="foto-anel">
+            <img src="assets/Gustavo.jpg" alt="Foto de Gustavo Vieira Walter" />
+          </div>
+          <span class="foto-chip chip-1"><span class="pixel">LVL</span> Game Dev</span>
+          <span class="foto-chip chip-2"><span class="pixel">XP</span> Web Dev</span>
+        </div>
+      </div>
+
+      <a class="scroll-dica" href="#sobre" aria-label="Rolar para a próxima seção"><span></span></a>
+    </section>
+
+    <!-- FAIXA DE TECNOLOGIAS -->
+    <div class="faixa" aria-hidden="true">
+      <div class="faixa-trilho">
+        <span>Lua</span><span>✦</span><span>WordPress</span><span>✦</span><span>HTML</span><span>✦</span>
+        <span>CSS</span><span>✦</span><span>JavaScript</span><span>✦</span><span>C#</span><span>✦</span>
+        <span>.NET</span><span>✦</span><span>SQL</span><span>✦</span><span>Git</span><span>✦</span>
+        <span>Lua</span><span>✦</span><span>WordPress</span><span>✦</span><span>HTML</span><span>✦</span>
+        <span>CSS</span><span>✦</span><span>JavaScript</span><span>✦</span><span>C#</span><span>✦</span>
+        <span>.NET</span><span>✦</span><span>SQL</span><span>✦</span><span>Git</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="secao">
+      <div class="container sobre-grid">
+        <div class="reveal">
+          <span class="secao-label">01 · Sobre mim</span>
+          <h2>Da web para os <span class="texto-gradiente">games</span>.</h2>
+
+          <p>
+            Sou o <strong>Gustavo Vieira Walter</strong>, desenvolvedor de Lages - SC. Passei um ano
+            criando sites em <strong>WordPress</strong> para clientes de áreas bem diferentes — saúde,
+            comércio, turismo, cultura e setor público — transformando a necessidade de cada um em um
+            site no ar.
+          </p>
+          <p>
+            Hoje trabalho com <strong>desenvolvimento de jogos usando Lua</strong>, onde a lógica de
+            programação que sempre gostei vira mecânica, sistema e diversão.
+          </p>
+          <p>
+            Também estudo Desenvolvimento Full-stack na <strong>Academia do Programador</strong> e
+            Sistemas de Informação na <strong>Uniplac</strong>.
+          </p>
+        </div>
+
+        <div class="codigo-card reveal">
+          <div class="codigo-barra">
+            <span class="ponto vermelho"></span><span class="ponto amarelo"></span><span class="ponto verde"></span>
+            <span class="codigo-arquivo">gustavo.lua</span>
+          </div>
+<pre><code><span class="c-kw">local</span> gustavo = {
+  cidade     = <span class="c-str">"Lages - SC"</span>,
+  foco       = { <span class="c-str">"Jogos"</span>, <span class="c-str">"Web"</span> },
+  linguagens = {
+    <span class="c-str">"Lua"</span>, <span class="c-str">"C#"</span>, <span class="c-str">"JavaScript"</span>,
+    <span class="c-str">"Kotlin"</span>, <span class="c-str">"C++"</span>, <span class="c-str">"SQL"</span>,
+  },
+  xp         = <span class="c-num">0</span>,
+  cafe       = <span class="c-num">math.huge</span>,
+}
+
+<span class="c-kw">function</span> gustavo:<span class="c-fn">proximoNivel</span>()
+  self.xp = self.xp + <span class="c-num">1</span>
+  <span class="c-kw">return</span> <span class="c-str">"sempre aprendendo"</span>
+<span class="c-kw">end</span></code></pre>
         </div>
       </div>
     </section>
 
-    <section id="sobre" class="mt-3 rounded-4">
-      <article class="px-3 py-5">
-        <div class="d-flex flex-column text-white fs-5 ps-3 border-start border-2 border-white">
-          <p class="fs-2 fw-bold">Sobre mim</p>
-          <p>
-            Olá! Meu nome é <strong>Gustavo Vieira Walter</strong>, sou aluno de Desenvolvimento Full-stack pela academia do programador 2025, também faço Sistemas de Informação na Uniplac onde estou atualmente na terceira frase.
-          </p>
-
-          <p>
-            Estou em busca da minha primeira oportunidade de trabalho para adquirir experiência.
-          </p>
-
-          <p>
-            Tenho uma vasta experiência com lógica de programação, entre as linguagens eu sei C#, Kotlin, C++. Além disso, conto com conhecimentos em banco de dados <strong>SQL</strong>.
-          </p>
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="secao secao-alt">
+      <div class="container">
+        <div class="reveal">
+          <span class="secao-label">02 · Jornada</span>
+          <h2>Experiência &amp; formação</h2>
         </div>
 
-        <img src="assets/quote.png" class="quote" alt="Quote" />
-      </article>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <span class="timeline-quando">Atual</span>
+            <div class="timeline-card">
+              <span class="timeline-icone cor-1" aria-hidden="true">🎮</span>
+              <h3>Desenvolvedor de Jogos</h3>
+              <p class="timeline-onde">Lua</p>
+              <p>Desenvolvimento de jogos com Lua, implementando funcionalidades e sistemas de gameplay.</p>
+            </div>
+          </li>
 
+          <li class="timeline-item reveal">
+            <span class="timeline-quando">1 ano</span>
+            <div class="timeline-card">
+              <span class="timeline-icone cor-2" aria-hidden="true">🌐</span>
+              <h3>Desenvolvedor Web</h3>
+              <p class="timeline-onde">WordPress</p>
+              <p>Criação de sites institucionais e lojas virtuais para clientes de saúde, varejo, turismo, cultura e setor público.</p>
+            </div>
+          </li>
+
+          <li class="timeline-item reveal">
+            <span class="timeline-quando">2025</span>
+            <div class="timeline-card">
+              <span class="timeline-icone cor-3" aria-hidden="true">💻</span>
+              <h3>Desenvolvimento Full-stack</h3>
+              <p class="timeline-onde">Academia do Programador</p>
+              <p>Formação prática com C#, .NET, HTML, CSS e banco de dados SQL.</p>
+            </div>
+          </li>
+
+          <li class="timeline-item reveal">
+            <span class="timeline-quando">Cursando</span>
+            <div class="timeline-card">
+              <span class="timeline-icone cor-4" aria-hidden="true">🎓</span>
+              <h3>Sistemas de Informação</h3>
+              <p class="timeline-onde">Uniplac</p>
+              <p>Graduação com base em engenharia de software, banco de dados e lógica de programação.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <section id="habilidades" class="rounded-4 mt-3 px-3 py-4 text-white">
-
-      <span class="fw-bold fs-1 mt-5 ps-3">Habilidades</span>
-
-      <p class="fs-5 mt-3 ps-3">
-        Aqui, você poderá conhecer as principais habilidades que desenvolvi ao longo da minha jornada como
-        desenvolvedor.
-        Abaixo apresento as ferramentas, frameworks e tecnologias que utilizo.
-      </p>
-
-      <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-4">
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=html&theme=light" alt="HTML">
-          <span>HTML</span>
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="secao">
+      <div class="container">
+        <div class="reveal">
+          <span class="secao-label">03 · Arsenal</span>
+          <h2>Habilidades</h2>
+          <p class="secao-intro">As ferramentas que carrego na mochila — cada uma desbloqueada em algum projeto.</p>
         </div>
 
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=css&theme=light" alt="CSS">
-          <span>CSS</span>
-        </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal" data-cor="1">
+            <span class="skill-titulo pixel">Game Dev</span>
+            <ul>
+              <li><img src="https://skillicons.dev/icons?i=lua" alt="" width="40" height="40" />Lua</li>
+              <li><img src="https://skillicons.dev/icons?i=cpp" alt="" width="40" height="40" />C++</li>
+              <li><img src="https://skillicons.dev/icons?i=kotlin" alt="" width="40" height="40" />Kotlin</li>
+            </ul>
+          </article>
 
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=bootstrap&theme=light" alt="Bootstrap">
-          <span class="text-white">Bootstrap</span>
-        </div>
+          <article class="skill-card reveal" data-cor="2">
+            <span class="skill-titulo pixel">Web</span>
+            <ul>
+              <li><img src="https://skillicons.dev/icons?i=wordpress" alt="" width="40" height="40" />WordPress</li>
+              <li><img src="https://skillicons.dev/icons?i=html" alt="" width="40" height="40" />HTML</li>
+              <li><img src="https://skillicons.dev/icons?i=css" alt="" width="40" height="40" />CSS</li>
+              <li><img src="https://skillicons.dev/icons?i=js" alt="" width="40" height="40" />JavaScript</li>
+              <li><img src="https://skillicons.dev/icons?i=bootstrap" alt="" width="40" height="40" />Bootstrap</li>
+            </ul>
+          </article>
 
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=net&theme=light" alt=".NET">
-          <span class="text-white">.NET</span>
-        </div>
+          <article class="skill-card reveal" data-cor="3">
+            <span class="skill-titulo pixel">Back-end</span>
+            <ul>
+              <li><img src="https://skillicons.dev/icons?i=cs" alt="" width="40" height="40" />C#</li>
+              <li><img src="https://skillicons.dev/icons?i=dotnet" alt="" width="40" height="40" />.NET</li>
+              <li><img src="https://skillicons.dev/icons?i=mysql" alt="" width="40" height="40" />SQL</li>
+            </ul>
+          </article>
 
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=cs&theme=light" alt="CSharp">
-          <span class="text-white">C#</span>
-        </div>
-
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=git&theme=light" alt="Git">
-          <span class="text-white">Git</span>
-        </div>
-
-        <div class="d-flex flex-column align-items-center gap-2">
-          <img width="75" src="https://skillicons.dev/icons?i=github&theme=light" alt="GitHub">
-          <span class="text-white">GitHub</span>
+          <article class="skill-card reveal" data-cor="4">
+            <span class="skill-titulo pixel">Ferramentas</span>
+            <ul>
+              <li><img src="https://skillicons.dev/icons?i=git" alt="" width="40" height="40" />Git</li>
+              <li><img src="https://skillicons.dev/icons?i=github" alt="" width="40" height="40" />GitHub</li>
+              <li><img src="https://skillicons.dev/icons?i=vscode" alt="" width="40" height="40" />VS Code</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="portfolio" class="rounded-4 mt-3 px-3 py-4 text-white">
+    <!-- PROJETOS -->
+    <section id="projetos" class="secao secao-alt">
+      <div class="container">
+        <div class="reveal">
+          <span class="secao-label">04 · Level select</span>
+          <h2>Projetos</h2>
+          <p class="secao-intro">Passe o mouse para ver o projeto em movimento e clique para abrir em tamanho grande.</p>
+        </div>
 
-      <span class="fw-bold fs-1 mt-5 ps-3">Portfólio</span>
+        <div class="filtros reveal" aria-label="Filtrar projetos">
+          <button class="filtro ativo" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button class="filtro" type="button" data-filtro="site" aria-pressed="false">Sites</button>
+          <button class="filtro" type="button" data-filtro="sistema" aria-pressed="false">Sistemas</button>
+          <button class="filtro" type="button" data-filtro="jogo" aria-pressed="false">Jogos</button>
+        </div>
 
-      <p class="fs-5 mt-3 ps-3">
-        Nesta seção, apresento os projetos dos quais participei e que refletem minha experiência e habilidades como desenvolvedor.
-        Ao clicar em cada card, um modal será exibido, proporcionando uma visualização detalhada do funcionamento de cada projeto.
-        Cada trabalho representou uma oportunidade de aprendizado e inovação!
-      </p>
+        <div id="gradeProjetos" class="projetos-grid"></div>
+      </div>
+    </section>
 
-      <div class="card mx-3 mx-md-auto rounded-4" style="max-width: 600px;" data-bs-theme="dark">
-        <img id="imgCard" class="card-img-top" />
-        <div class="card-body">
-          <span id="stackCard" class="d-flex gap-1"></span>
-          <h5 id="tituloCard" class="card-title mt-3"></h5>
-          <p id="descricaoCard" class="card-text"></p>
-            <button type="button" id="btnVerProjeto" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#portfolioModal">
-              Ver Projeto
+    <!-- CONTATO -->
+    <section id="contato" class="secao">
+      <div class="container">
+        <div class="contato-box reveal">
+          <span class="secao-label">05 · Player 2</span>
+          <h2>Bora criar algo <span class="texto-gradiente">juntos</span>?</h2>
+          <p class="secao-intro">Tem um projeto, uma vaga ou só quer trocar uma ideia? Me chama em qualquer um desses canais.</p>
+
+          <div class="contato-grid">
+            <button id="btnCopiarEmail" class="contato-item" type="button" data-email="waltervgustavo&#64;gmail.com">
+              <span class="contato-icone">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+              </span>
+              <span class="contato-texto">
+                <small>E-mail · clique para copiar</small>
+                <strong>waltervgustavo&#64;gmail.com</strong>
+              </span>
             </button>
-          <a id="urlRepositorio" class="btn btn-dark">Repositório</a>
+
+            <a class="contato-item" href="https://wa.me/5549999541509" target="_blank" rel="noopener">
+              <span class="contato-icone">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              </span>
+              <span class="contato-texto">
+                <small>WhatsApp</small>
+                <strong>(49) 9 9954-1509</strong>
+              </span>
+            </a>
+
+            <a class="contato-item" href="https://www.linkedin.com/in/gustavo-walter-418a742bb/" target="_blank" rel="noopener">
+              <span class="contato-icone">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z" /></svg>
+              </span>
+              <span class="contato-texto">
+                <small>LinkedIn</small>
+                <strong>Gustavo Walter</strong>
+              </span>
+            </a>
+
+            <a class="contato-item" href="https://github.com/Gustav0W" target="_blank" rel="noopener">
+              <span class="contato-icone">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z" /></svg>
+              </span>
+              <span class="contato-texto">
+                <small>GitHub</small>
+                <strong>Gustav0W</strong>
+              </span>
+            </a>
+          </div>
+
+          <p class="contato-local">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+            Lages - SC - Brasil
+          </p>
         </div>
       </div>
-
-      <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-        <button id="selecionarPrimeiroCard" class="btn btn-primary">Controle de Medicamentos</button>
-        <button id="selecionarSegundoCard" class="btn btn-primary">Controle de Personagens</button>
-      </div>
-
-    </section>
-
-    <section id="contato" class="rounded-4 mt-3 p-3 p-lg-4">
-
-      <span class="text-white fw-bold fs-1">Contato</span>
-
-      <div class="d-flex align-items-center mt-3">
-
-        <div class="icone d-flex justify-content-center align-items-center mt-1 mb-1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-            </path>
-          </svg>
-        </div>
-        <span class="text-white ps-2">(49) 9 9954-1509</span>
-
-      </div>
-
-      <div class="d-flex align-items-center">
-
-        <div class="icone d-flex justify-content-center align-items-center mt-1 mb-1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail">
-            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
-        </div>
-        <span class="text-white ps-2">waltervgustavo&#64;gmail.com</span>
-
-      </div>
-
-      <div class="d-flex align-items-center">
-
-        <div class="icone d-flex justify-content-center align-items-center mt-1 mb-1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pinned">
-            <path d="M18 8c0 4.5-6 9-6 9s-6-4.5-6-9a6 6 0 0 1 12 0"></path>
-            <circle cx="12" cy="8" r="2"></circle>
-            <path d="M8.835 14H5a1 1 0 0 0-.9.7l-2 6c-.1.1-.1.2-.1.3 0 .6.4 1 1 1h18c.6 0 1-.4 1-1 0-.1 0-.2-.1-.3l-2-6a1 1 0 0 0-.9-.7h-3.835">
-            </path>
-          </svg>
-        </div>
-        <span class="text-white ps-2">Lages - SC - Brasil</span>
-
-      </div>
-
-      <div class="d-flex mt-3">
-        <a target="_blank" href="https://github.com/Gustav0W">
-          <img alt="Github logo" src="assets/github.png" />
-        </a>
-
-        <a target="_blank" href="https://www.linkedin.com/in/gustavo-walter-418a742bb/">
-          <img alt="Linkedin logo" src="assets/linkedin.png" />
-        </a>
-      </div>
-
     </section>
   </main>
 
-  <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content bg-dark text-white rounded-4">
-        <div class="modal-header">
-          <h5 class="modal-title" id="portfolioModalLabel"></h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body text-center rounded-bottom-4 modal-body-customizado">
-          <img id="portfolioModalImage" src="" alt="Imagem do Projeto" class="img-fluid mb-3" />
-        </div>
-      </div>
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <span>© <span id="anoAtual"></span> Gustavo Vieira Walter</span>
+      <span class="rodape-dica" title="Tente no teclado">↑↑↓↓←→←→BA</span>
     </div>
-  </div>
+  </footer>
 
+  <!-- MODAL DO PROJETO -->
+  <dialog id="modalProjeto" class="modal" aria-labelledby="modalTitulo">
+    <button id="btnFecharModal" class="modal-fechar" type="button" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+    </button>
+    <div id="modalMidia" class="modal-midia"></div>
+    <div class="modal-info">
+      <span id="modalTipo" class="projeto-tipo"></span>
+      <h3 id="modalTitulo"></h3>
+      <p id="modalDescricao"></p>
+      <ul id="modalTags" class="tags"></ul>
+      <div id="modalLinks" class="modal-links"></div>
+    </div>
+  </dialog>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   <script charset="utf-8" src="./index.js"></script>
 </body>
 </html>
