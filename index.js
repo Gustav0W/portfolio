@@ -1,7 +1,6 @@
 const projetos = [
   {
     titulo: 'Neurocor',
-    categoria: 'site',
     tipo: 'Clínica médica',
     dominio: 'neurocor',
     video: './assets/videos/neurocor-1.mp4',
@@ -12,7 +11,6 @@ const projetos = [
   },
   {
     titulo: 'Recicla Lages',
-    categoria: 'site',
     tipo: 'Setor público',
     dominio: 'reciclalages',
     video: './assets/videos/recicla-lages.mp4',
@@ -23,7 +21,6 @@ const projetos = [
   },
   {
     titulo: 'Espaço Opção',
-    categoria: 'site',
     tipo: 'Loja de moda',
     dominio: 'espacoopcao',
     video: './assets/videos/loja-opcao.mp4',
@@ -34,7 +31,6 @@ const projetos = [
   },
   {
     titulo: 'Expedições',
-    categoria: 'site',
     tipo: 'Turismo de aventura',
     dominio: 'expedicoes',
     video: './assets/videos/expedicoes.mp4',
@@ -45,7 +41,6 @@ const projetos = [
   },
   {
     titulo: 'Orquestra',
-    categoria: 'site',
     tipo: 'Projeto cultural',
     dominio: 'orquestra',
     video: './assets/videos/orquestra.mp4',
@@ -56,7 +51,6 @@ const projetos = [
   },
   {
     titulo: 'ASFAG Controle de Pragas',
-    categoria: 'site',
     tipo: 'Prestação de serviços',
     dominio: 'asfag',
     video: './assets/videos/asfag-controle-pragas.mp4',
@@ -67,7 +61,6 @@ const projetos = [
   },
   {
     titulo: 'Plano Funeral',
-    categoria: 'site',
     tipo: 'Planos funerários',
     dominio: 'planofuneral',
     video: './assets/videos/plano-funeral.mp4',
@@ -76,28 +69,6 @@ const projetos = [
     tags: ['WordPress', 'Serviços', 'Institucional'],
     url: null
   },
-  {
-    titulo: 'Gerenciador de Personagens',
-    categoria: 'sistema',
-    tipo: 'Ferramenta para RPG',
-    dominio: 'localhost',
-    imagem: './assets/GerenciadorDePersonagens.png',
-    gif: 'https://i.imgur.com/pxqDp2r.gif',
-    descricao: 'Sistema para auxiliar na criação de personagens para RPG de mesa. É o projeto pessoal que mais tenho vontade de evoluir — a ideia é deixá-lo cada vez mais completo e um dia publicá-lo para qualquer pessoa usar.',
-    tags: ['C#', '.NET', 'HTML', 'CSS'],
-    repositorio: 'https://github.com/Gustav0W/Gerenciador-De-Personagens-2025'
-  },
-  {
-    titulo: 'Controle de Medicamentos',
-    categoria: 'sistema',
-    tipo: 'Gestão de posto de saúde',
-    dominio: 'localhost',
-    imagem: './assets/ControleMedicamentos.png',
-    gif: 'https://i.imgur.com/pKHsY4i.gif',
-    descricao: 'Sistema de gerenciamento de um posto de saúde, com controle de fornecimento, estoque, funcionários, pacientes e retirada de prescrições — com foco na rastreabilidade das movimentações de estoque.',
-    tags: ['C#', '.NET', 'HTML', 'CSS'],
-    repositorio: 'https://github.com/Gustav0W/Controle-de-Medicamentos2.ConsoleApp'
-  }
 ];
 
 const papeis = [
@@ -309,7 +280,6 @@ function criarCardProjeto(projeto) {
   const card = document.createElement('article');
 
   card.className = 'projeto-card';
-  card.dataset.categoria = projeto.categoria;
   card.tabIndex = 0;
   card.setAttribute('role', 'button');
   card.setAttribute('aria-label', `Abrir projeto ${projeto.titulo}`);
@@ -376,36 +346,16 @@ function criarCardProjeto(projeto) {
   return card;
 }
 
-function criarCardJogoBloqueado() {
-  const card = document.createElement('article');
-
-  card.className = 'projeto-card projeto-bloqueado';
-  card.dataset.categoria = 'jogo';
-  card.innerHTML = `
-    <div class="cadeado" aria-hidden="true">🔒</div>
-    <span class="pixel">Fase bloqueada</span>
-    <h3>Projetos de jogos em Lua</h3>
-    <p>Em breve, gameplay dos jogos em que estou trabalhando. Volte para desbloquear!</p>
-  `;
-
-  return card;
-}
-
 function renderizarProjetos() {
   const grade = document.getElementById('gradeProjetos');
 
   for (let projeto of projetos)
     grade.appendChild(criarCardProjeto(projeto));
 
-  grade.appendChild(criarCardJogoBloqueado());
-
   // Em telas de toque não existe hover: o preview toca quando o card está visível
   if (semHover && !semMovimento) {
     const observador = new IntersectionObserver((entradas) => {
       for (let entrada of entradas) {
-        if (!entrada.target.iniciarPreview)
-          continue;
-
         if (entrada.isIntersecting)
           entrada.target.iniciarPreview();
         else
@@ -415,39 +365,6 @@ function renderizarProjetos() {
 
     for (let card of grade.children)
       observador.observe(card);
-  }
-}
-
-function iniciarFiltros() {
-  const botoes = document.querySelectorAll('.filtro');
-  const cards = document.querySelectorAll('.projeto-card');
-
-  for (let botao of botoes) {
-    const filtro = botao.dataset.filtro;
-    const total = filtro === 'todos'
-      ? projetos.length
-      : projetos.filter((projeto) => projeto.categoria === filtro).length;
-
-    botao.insertAdjacentHTML('beforeend', `<span class="contador">${total}</span>`);
-
-    botao.addEventListener('click', () => {
-      for (let outro of botoes) {
-        outro.classList.toggle('ativo', outro === botao);
-        outro.setAttribute('aria-pressed', outro === botao);
-      }
-
-      for (let card of cards) {
-        const mostrar = filtro === 'todos' || card.dataset.categoria === filtro;
-
-        card.classList.toggle('escondido', !mostrar);
-        card.classList.remove('entrando');
-
-        if (mostrar) {
-          void card.offsetWidth;
-          card.classList.add('entrando');
-        }
-      }
-    });
   }
 }
 
@@ -536,7 +453,6 @@ function main() {
   iniciarDigitacao();
   iniciarCanvasPixels();
   renderizarProjetos();
-  iniciarFiltros();
   iniciarModal();
   iniciarReveal();
   iniciarSpotlightSkills();
